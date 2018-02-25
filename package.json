@@ -6,23 +6,24 @@
   "scripts": {
     "start": "webpack-dev-server",
     "build": "webpack -p",
-    "test": "standard && flow"
+    "test": "standard"
   },
   "standard": {
     "parser": "babel-eslint",
     "plugins": [
-      "flowtype"
+      "nullishCoalescingOperator"
     ],
-    "globals": [
-      "HTMLDivElement"
-    ]
+    "globals": []
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.0.0-beta.40",
+    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.0.0-beta.40",
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0-beta.40",
+    "@babel/plugin-proposal-optional-chaining": "^7.0.0-beta.40",
+    "@babel/plugin-proposal-pipeline-operator": "^7.0.0-beta.40",
     "@babel/preset-env": "^7.0.0-beta.40",
-    "@babel/preset-flow": "^7.0.0-beta.40",
     "@babel/preset-react": "^7.0.0-beta.40",
     "babel-loader": "^8.0.0-beta.0",
     "babel-plugin-transform-async-to-generator": "^6.24.1",

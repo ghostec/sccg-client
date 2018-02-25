@@ -1,19 +1,10 @@
-// @flow
 import * as React from 'react'
 import * as THREE from 'three'
 
-export default class Scene extends React.Component<{}> {
-  mount: ?HTMLDivElement
-  frameId: number
-  scene: THREE.Scene
-  camera: THREE.Camera
-  renderer: THREE.Renderer
-  material: THREE.Material
-  cube: THREE.Mesh
-
+class Scene extends React.Component {
   componentDidMount = () => {
-    const width = (this.mount && this.mount.clientWidth) || 800
-    const height = (this.mount && this.mount.clientHeight) || 600
+    const width = this.mount?.clientWidth
+    const height = this.mount?.clientHeight
 
     const scene = new THREE.Scene()
     const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000)
@@ -33,13 +24,13 @@ export default class Scene extends React.Component<{}> {
     this.material = material
     this.cube = cube
 
-    this.mount && this.mount.appendChild(this.renderer.domElement)
+    this.mount?.appendChild(this.renderer.domElement)
     this.start()
   }
 
   componentWillUnmount () {
     this.stop()
-    this.mount && this.mount.removeChild(this.renderer.domElement)
+    this.mount?.removeChild(this.renderer.domElement)
   }
 
   start = () => {
@@ -66,12 +57,26 @@ export default class Scene extends React.Component<{}> {
 
   render = () => {
     return (
-      <div
-        style={{ width: '400px', height: '400px' }}
-        ref={(mount: ?HTMLDivElement) => {
-          this.mount = mount
-        }}
-      />
+      <div style={{...Scene.styles}}>
+        <div
+          style={{ width: '720px', height: '1280px' }}
+          ref={mount => this.mount = mount}
+        />
+      </div>
     )
   }
 }
+
+Scene.styles = ({
+  flex: '0 1 100vw',
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  justifyContent: 'center',
+  background: 'red',
+  height: '100vh',
+  width: '100vw',
+  overflow: 'hidden'
+})
+
+export default Scene
