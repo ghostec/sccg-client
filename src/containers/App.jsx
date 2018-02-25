@@ -52,7 +52,7 @@ export default class Scene extends React.Component<{}> {
     window.cancelAnimationFrame(this.frameId)
   }
 
-  animate () {
+  animate = () => {
     this.cube.rotation.x += 0.01
     this.cube.rotation.y += 0.01
 
