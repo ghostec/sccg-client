@@ -1,2 +1,7 @@
+export { default as Squad } from './Squad'
 export { default as SquadPlayer } from './SquadPlayer'
 export { default as Client } from './Client'
+export { default as Camera } from './Camera'
+export { default as Scene } from './Scene'
+export { default as Renderer } from './Renderer'
+export { default as Game } from './Game'

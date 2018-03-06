@@ -9,9 +9,11 @@ export default class SquadPlayer {
     this._mesh = mesh
   }
 
-  update = () => {
-    this._mesh.position.x += 0.01
+  update = player => {
+    const { x, y } = player.position
+    this._mesh.position.x = x / 300
+    this._mesh.position.y = y / 300
   }
 
-  getMesh = () => this._mesh
+  getMeshes = () => [this._mesh]
 }
